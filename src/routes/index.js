@@ -11,16 +11,12 @@ router.get('/', (req, res) => {
 // Login page route
 
 router.get('/login', (req, res) => {
-    res.render('login.ejs', {
-        message: req.flash('loginMessage')
-    });
+    res.send('Login Page')
 });
 
 // signup page route
-app.get('/signup', (req, res) => {
-    res.render('signup', {
-        message: req.flash('signupMessage')
-    });
+router.get('/signup', (req, res) => {
+    res.send('Sign Up Page')
 });
 
 module.exports = router;
