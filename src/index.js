@@ -16,4 +16,6 @@ const app = express();
 
 // start the server
 
-
+app.listen(app.get('port'), () => {
+	console.log('server on port ${3000}');
+});
