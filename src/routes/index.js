@@ -16,4 +16,11 @@ router.get('/login', (req, res) => {
     });
 });
 
+// signup page route
+app.get('/signup', (req, res) => {
+    res.render('signup', {
+        message: req.flash('signupMessage')
+    });
+});
+
 module.exports = router;
