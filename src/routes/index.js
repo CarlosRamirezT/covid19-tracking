@@ -35,11 +35,17 @@ module.exports = (app, passport) => {
 
     // signup page routes
 
-    app.get('/signup', async(req, res) => {
-        res.render('signup', {
-            message: false
-        });
-    });
+    app.get('/signup', (req, res) => {
+		res.render('signup', {
+			message: req.flash('signupMessage')
+		});
+	});
+
+	app.post('/signup', passport.authenticate('local-signup', {
+		successRedirect: '/intermediate',
+		failureRedirect: '/signup',
+		failureFlash: true
+	}));
 
     // intermediate page routes
 
