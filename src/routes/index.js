@@ -1,99 +1,100 @@
+const {unlink}= require('fs-extra');
+const Image =require('../models/case');
+const path= require('path');
+module.exports = (app, passport) => {
 
-const { Router } = require('express');
-const router = Router();
+    // Index page routes
+    // initial route for no signed users
 
-// Index page routes
-// initial route for no signed users
-
-router.get('/', async(req, res) => {
-    res.send('Index Page for no signed users');
-});
-
-// Index page routes
-// initial route for signed users
-
-router.get('/user/:id', async(req, res) => {
-    res.send('Index Page for signed users');
-});
-
-// Login page routes
-
-router.get('/login', async(req, res) => {
-	res.render('login', {
-        message: false
+    app.get('/', async(req, res) => {
+        res.send('Index Page for no signed users');
     });
-});
 
-// signup page routes
+    // Index page routes
+    // initial route for signed users
 
-router.get('/signup', async(req, res) => {
-	res.render('signup', {
-        message: false
+    app.get('/user/:id', async(req, res) => {
+        res.send('Index Page for signed users');
     });
-});
 
-// intermediate page routes
+    // Login page routes
 
-router.get('/intermediate', (req, res) => {
-    res.send('Intermediate Page')
-});
+    app.get('/login', async(req, res) => {
+        res.render('login', {
+            message: false
+        });
+    });
 
-// intermediate upload page routes
+    // signup page routes
 
-// router.get('/intermediate/upload', (req, res) => {
-//     res.render('intermediate-upload', {
-// 		user: req.user
-// 	});
-// 	// res.render('intermediate-upload');
-// });
+    app.get('/signup', async(req, res) => {
+        res.render('signup', {
+            message: false
+        });
+    });
 
-// signed users cases upload
+    // intermediate page routes
 
-router.get('/user/upload/:id', async(req, res) => {
-    // res.render('upload', {
-	// 	user: req.user
-	// });
-	res.render('upload');
-});
+    app.get('/intermediate', (req, res) => {
+        res.send('Intermediate Page')
+    });
 
-router.post('/user/upload/:id', async(req, res) => {
-    res.send('Upload Page');
-});
+    // intermediate upload page routes
 
-// profile page routes
+    // router.get('/intermediate/upload', (req, res) => {
+    //     res.render('intermediate-upload', {
+    // 		user: req.user
+    // 	});
+    // 	// res.render('intermediate-upload');
+    // });
 
-router.get('/profile', (req, res) => {
-    res.send('Profile Page')
-});
+    // signed users cases upload
 
-// logout routes
+    app.get('/user/upload/:id', async(req, res) => {
+        // res.render('upload', {
+        // 	user: req.user
+        // });
+        res.render('upload');
+    });
 
-router.get('/logout', (req, res) => {
-    res.send('Logout Page')
-});
+    app.post('/user/upload/:id', async(req, res) => {
+        res.send('Upload Page');
+    });
 
-// map tracking routes
+    // profile page routes
 
-router.get('/map', async(req, res) => {
-    res.send('Map Page');
-});
+    app.get('/profile', (req, res) => {
+        res.send('Profile Page')
+    });
 
-// case profile route
+    // logout routes
 
-router.get('/case/:id', async(req, res) => {
-    res.send('Case Profile Page');
-});
+    app.get('/logout', (req, res) => {
+        res.send('Logout Page')
+    });
 
-// case delete cases route
+    // map tracking routes
 
-router.get('/case/:id/delete', async(req, res) => {
-    res.send('Case visualize and delete Page');
-});
+    app.get('/map', async(req, res) => {
+        res.send('Map Page');
+    });
 
-// case visualize and delete cases route
+    // case profile route
 
-router.get('/user/delete/case', async(req, res) => {
-    res.send('Case visualize and delete Page');
-});
+    app.get('/case/:id', async(req, res) => {
+        res.send('Case Profile Page');
+    });
 
-module.exports = router;
+    // case delete cases route
+
+    app.get('/case/:id/delete', async(req, res) => {
+        res.send('Case visualize and delete Page');
+    });
+
+    // case visualize and delete cases route
+
+    app.get('/user/delete/case', async(req, res) => {
+        res.send('Case visualize and delete Page');
+    });
+
+};
