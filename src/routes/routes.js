@@ -1,14 +1,15 @@
-const {unlink}= require('fs-extra');
-const Image =require('../models/case');
+const {unlink} = require('fs-extra');
+const Case = require('../models/case');
 const path= require('path');
 module.exports = (app, passport) => {
 
     // Index page routes
     // initial route for no signed users
 
-    app.get('/', async(req, res) => {
-        res.send('Index Page for no signed users');
-    });
+    app.get('/', async(req,res)=>{
+        const cases = await Case.find()
+        res.render('index',{'cases': cases});
+	});
 
     // Index page routes
     // initial route for signed users

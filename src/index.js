@@ -57,7 +57,7 @@ app.use((req,res,next)=>{
 
 // routes
 
-require('./routes/index.js')(app, passport);
+require('./routes/routes.js')(app, passport);
 
 // static files
 
