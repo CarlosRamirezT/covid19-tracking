@@ -65,15 +65,48 @@ module.exports = (app, passport) => {
 
     // signed users cases upload
 
+    app.use(function (err, req, res, next) {
+        console.log('----------------- This is the invalid field ->', err.field)
+        next(err)
+      })
+
     app.get('/user/upload/:id', async(req, res) => {
-        // res.render('upload', {
-        // 	user: req.user
-        // });
         res.render('upload');
     });
 
     app.post('/user/upload/:id', async(req, res) => {
-        res.send('Upload Page');
+        const image = new Case();
+
+        // victim's information
+        
+		image.name = req.body.name;
+		image.age = req.body.age;
+		image.date_start = req.body.date_start;
+		image.address = req.body.address;
+		image.sector = req.body.sector;
+		image.city = req.body.city;
+		image.province = req.body.province;
+        image.country = req.body.country;
+        
+		 // victim contact's information
+
+		image.contact_phone = req.body.contact_phone;
+
+        // dissappearance information
+
+        image.symptoms = req.body.symptoms;
+
+        //infomarmacion de la imagen
+
+		// image.filename = req.image.filename;
+		// image.path = 'img/uploads/' + req.image.filename;
+		// image.originalname = req.image.originalname;
+		// image.mimetype = req.image.mimetype;
+		// image.size = req.image.size;
+        // image.createrId = req.body.creader;
+        
+        await image.save();
+		res.redirect('/');
     });
 
     // profile page routes

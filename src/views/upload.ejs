@@ -11,13 +11,13 @@
 <body>
     <%- include("partials/navigation")%>
       <script>
-        //   function id_creade(){
-        //       const id_box = document.getElementById("Creader");
-        //       const Location= window.location.pathname;
-        //       var Iduser="";
-        //       Iduser=Location.replace('/user/upload/','')
-        //       txtcaja.value=Iduser;
-        //   }
+          function id_creade(){
+              const id_box = document.getElementById("Creader");
+              const Location= window.location.pathname;
+              var Iduser="";
+              Iduser=Location.replace('/user/upload/','')
+              txtcaja.value=Iduser;
+          }
       </script>
     <div class="container p-4">
         <div class="card">
@@ -41,8 +41,8 @@
 
                     <div class="input-group mb-3">
                         <div class="custom-file">
-                            <input type="file" name="image" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" required>
-                            <label class="custom-file-label" for="inputGroupFile01">Foto Afectado</label>
+                            <!-- <input type="file" name="image" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" required> -->
+                            <!-- <label class="custom-file-label" for="inputGroupFile01">Foto Afectado</label> -->
                         </div>
                     </div>
 
@@ -55,8 +55,8 @@
                     <input type="text" name="creader" id="creader" style="display:none">
 
                     <div class="form-group">
-                        <!-- <button type="submit" class="btn btn-success btn-block" onclick="id_creader()">Upload</button> -->
-                        <button type="submit" class="btn btn-success btn-block" onclick="">Upload</button>
+                        <button type="submit" class="btn btn-success btn-block" onclick="id_creader()">Upload</button>
+                        <!-- <button type="submit" class="btn btn-success btn-block" onclick="">Upload</button> -->
                     </div>
 
                 </form> 
@@ -65,13 +65,13 @@
     </div>
 
     <script>
-        // function id_creader(){
-        //     const txtcaja= document.getElementById("creader");
-        //     const Location= window.location.pathname;
-        //     var Iduser=Location.replace('http://localhost:8070/user/','');
-        //     Iduser=Iduser.replace('/user/upload/','')
-        //     txtcaja.value=Iduser;
-        // }
+        function id_creader(){
+            const txtcaja= document.getElementById("creader");
+            const Location= window.location.pathname;
+            var Iduser=Location.replace('http://localhost:3000/user/','');
+            Iduser=Iduser.replace('/user/upload/','')
+            txtcaja.value=Iduser;
+        }
     </script>
 
 </body>
