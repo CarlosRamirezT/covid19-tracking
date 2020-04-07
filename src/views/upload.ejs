@@ -19,49 +19,60 @@
               txtcaja.value=Iduser;
           }
       </script>
-    <div class="container p-4">
-        <div class="card">
-            <div class="card-body">
-                <form action="/user/upload/:id" method="POST" enctype="multipart/form-data" class="-form">
-                
-                    <h4>Informacion del Caso</h4>
+    <div class="container p-4" style="display: flex;">
+        <form action="/user/upload" method="POST" enctype="multipart/form-data" class="-form"></form>
+            <div class="card">
+                <div class="card-body">
+                    
+                    <h4>Personal</h4>
 
-                    <input name="name" type="text" placeholder="Nombre y Apellidos" class="form-control -form-input">
-                    <input name="age" type="number" placeholder="Edad" class="form-control">
-                    <input name="date_start" type="date" placeholder="Fecha Presento Sintomas" class="form-control">
-                    <input name="address" type="text" placeholder="Calle y Numero Desaparicion" class="form-control" required>
-                    <input name="sector" type="text" placeholder="Sector Desaparicion" class="form-control">
-                    <input name="city" type="text" placeholder="Ciudad Desaparicion" class="form-control" required>
-                    <input name="province" type="text" placeholder="Provincia Desaparicion" class="form-control" required>
-                    <input name="country" type="text" placeholder="Pais Desaparicion" class="form-control" required>
+                    <input name="name" type="text" placeholder="Nombre y Apellidos" class="form-control -form-input"><br/>
+                    <input name="age" type="number" placeholder="Edad" class="form-control"><br/>
+                    <input name="date_start" type="date" placeholder="Fecha Presento Sintomas" class="form-control"><br/>
+                </div>
+            </div>
+            <div class="card" style="margin-left: 20px;">
+                <div class="card-body">
 
-                    <h4>Informacion de Contacto</h4>
+                    <h4>Dirección</h4>
 
-                    <input name="contact_phone" type="text" placeholder="Telefono Contacto" class="form-control" required>
+                    <input name="address" type="text" placeholder="Calle y Numero" class="form-control" required><br/>
+                    <input name="sector" type="text" placeholder="Sector" class="form-control"><br/>
+                    <input name="city" type="text" placeholder="Ciudad" class="form-control" required><br/>
+                    <input name="province" type="text" placeholder="Provincia" class="form-control" required><br/>
+                    <input name="country" type="text" placeholder="Pais" class="form-control" required><br/>
 
-                    <div class="input-group mb-3">
+                </div>
+            </div>
+            <div class="card" style="margin-left: 20px;">
+                <div class="card-body">
+
+                    <h4>Contacto</h4>
+
+                    <input name="contact_phone" type="text" placeholder="Telefono Contacto" class="form-control" required><br/>
+
+                    <!-- <div class="input-group mb-3">
                         <div class="custom-file">
-                            <!-- <input type="file" name="image" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" required> -->
-                            <!-- <label class="custom-file-label" for="inputGroupFile01">Foto Afectado</label> -->
+                            <input type="file" name="image" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" required>
+                            <label class="custom-file-label" for="inputGroupFile01">Foto Afectado</label>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <h4>Informacion del Caso</h4>
+                    <h4>Cuadro Clinico</h4>
 
                     <div class="form-group">
-                        <textarea name="symptoms" class="form-control" placeholder="Sintomas que Presenta" required></textarea>
+                        <textarea name="symptoms" class="form-control" placeholder="Sintomas que Presenta" required></textarea><br/>
                     </div>
 
                     <input type="text" name="creader" id="creader" style="display:none">
 
                     <div class="form-group">
                         <button type="submit" class="btn btn-success btn-block" onclick="id_creader()">Upload</button>
-                        <!-- <button type="submit" class="btn btn-success btn-block" onclick="">Upload</button> -->
                     </div>
 
-                </form> 
+                </div>
             </div>
-        </div>
+        </form> 
     </div>
 
     <script>
