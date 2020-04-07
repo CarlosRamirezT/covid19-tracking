@@ -130,7 +130,12 @@ module.exports = (app, passport) => {
     // map tracking routes
 
     app.get('/map', async(req, res) => {
-        res.send('Map Page');
+        const cases = await Case.find()
+        var navigation2use = 'navigation-unsigned'
+        if(req.isAuthenticated()){
+            navigation2use = 'navigation'
+        }
+        res.render('map', {'cases': cases, 'navigation2use': navigation2use});
     });
 
     // case profile route
