@@ -11,9 +11,6 @@ const caseSchema= new Schema({
     country : {type: String, default: 'Desconocido'},
     // victim contact's information
     contact_phone : {type: String, default: 'Desconocido'},
-    contact_name : {type: String, default: 'Desconocido'},
-    contact_relation : {type: String, default: 'Desconocido'},
-    contact_address : {type: String, default: 'Desconocido'},
     //image information
     createrId:{type:String},
     filename: {type: String},
