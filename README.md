@@ -3,6 +3,11 @@
 # Description
 Una plataforma rápida y confiable en la se le permitirá la población será capaz de documentar casos relacionados al COVID-19, el cual bajo la supervisión del ministerio de salud y el 911, los cuales usaran esta plataforma para auxiliar a aquellos que han sido documentados como infectados con dicha enfermedad.
 # # Manual Tecnico, Resources Used, en carpeta Documentation
+## Recursos
+
+[Introduccion a mongoDB](https://www.youtube.com/watch?v=lWMemPN9t6Q)
+[Ejemplo practico de creacion de aplicacion con mongoDB y nodeJS](https://www.youtube.com/watch?v=aNYX2F1RX-s)
+
 
 # Installation
 Descargar NodeJS desde su pagina oficial o desde [aqui](https://nodejs.org/es/) e instalarlo.
