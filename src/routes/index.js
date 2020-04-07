@@ -21,9 +21,17 @@ module.exports = (app, passport) => {
 
     app.get('/login', async(req, res) => {
         res.render('login', {
-            message: false
+            message: req.flash('loginMessage')
         });
     });
+
+    const validate=passport.authenticate('local-login');
+    console.log(validate) 
+	app.post('/login', passport.authenticate('local-login', {
+		successRedirect: '/intermediate',
+		failureRedirect: '/login',
+		failureFlash: true
+	}));
 
     // signup page routes
 
