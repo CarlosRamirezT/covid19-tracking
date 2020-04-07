@@ -74,11 +74,11 @@ module.exports = (app, passport) => {
         next(err)
       })
 
-    app.get('/user/upload/:id', isLoggedIn, async(req, res) => {
+    app.get('/user/upload', isLoggedIn, async(req, res) => {
         res.render('upload');
     });
 
-    app.post('/user/upload/:id', isLoggedIn, async(req, res) => {
+    app.post('/user/upload', isLoggedIn, async(req, res) => {
         const image = new Case();
 
         // victim's information
