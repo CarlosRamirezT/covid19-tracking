@@ -36,8 +36,24 @@ router.get('/intermediate', (req, res) => {
 
 // intermediate upload page routes
 
-router.get('/intermediate/upload', (req, res) => {
-    res.send('Intermediate Upload Page')
+// router.get('/intermediate/upload', (req, res) => {
+//     res.render('intermediate-upload', {
+// 		user: req.user
+// 	});
+// 	// res.render('intermediate-upload');
+// });
+
+// signed users cases upload
+
+router.get('/user/upload/:id', async(req, res) => {
+    // res.render('upload', {
+	// 	user: req.user
+	// });
+	res.render('upload');
+});
+
+router.post('/user/upload/:id', async(req, res) => {
+    res.send('Upload Page');
 });
 
 // profile page routes
@@ -50,16 +66,6 @@ router.get('/profile', (req, res) => {
 
 router.get('/logout', (req, res) => {
     res.send('Logout Page')
-});
-
-// signed users cases upload
-
-router.get('/user/upload/:id', async(req, res) => {
-    res.send('Upload Page');
-});
-
-router.post('/user/upload/:id', async(req, res) => {
-    res.send('Upload Page');
 });
 
 // map tracking routes

@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <%- include("partials/head")%>
+    <title>Report Case</title>
+</head>
+<body>
+    <%- include("partials/navigation")%>
+      <script>
+        //   function id_creade(){
+        //       const id_box = document.getElementById("Creader");
+        //       const Location= window.location.pathname;
+        //       var Iduser="";
+        //       Iduser=Location.replace('/user/upload/','')
+        //       txtcaja.value=Iduser;
+        //   }
+      </script>
+    <div class="container p-4">
+        <div class="card">
+            <div class="card-body">
+                <form action="/user/upload/:id" method="POST" enctype="multipart/form-data" class="-form">
+                
+                    <h4>Informacion del Caso</h4>
+
+                    <input name="name" type="text" placeholder="Nombre y Apellidos" class="form-control -form-input">
+                    <input name="age" type="number" placeholder="Edad" class="form-control">
+                    <input name="date_start" type="date" placeholder="Fecha Presento Sintomas" class="form-control">
+                    <input name="address" type="text" placeholder="Calle y Numero Desaparicion" class="form-control" required>
+                    <input name="sector" type="text" placeholder="Sector Desaparicion" class="form-control">
+                    <input name="city" type="text" placeholder="Ciudad Desaparicion" class="form-control" required>
+                    <input name="province" type="text" placeholder="Provincia Desaparicion" class="form-control" required>
+                    <input name="country" type="text" placeholder="Pais Desaparicion" class="form-control" required>
+
+                    <h4>Informacion de Contacto</h4>
+
+                    <input name="contact_phone" type="text" placeholder="Telefono Contacto" class="form-control" required>
+
+                    <div class="input-group mb-3">
+                        <div class="custom-file">
+                            <input type="file" name="image" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" required>
+                            <label class="custom-file-label" for="inputGroupFile01">Foto Afectado</label>
+                        </div>
+                    </div>
+
+                    <h4>Informacion del Caso</h4>
+
+                    <div class="form-group">
+                        <textarea name="symptoms" class="form-control" placeholder="Sintomas que Presenta" required></textarea>
+                    </div>
+
+                    <input type="text" name="creader" id="creader" style="display:none">
+
+                    <div class="form-group">
+                        <!-- <button type="submit" class="btn btn-success btn-block" onclick="id_creader()">Upload</button> -->
+                        <button type="submit" class="btn btn-success btn-block" onclick="">Upload</button>
+                    </div>
+
+                </form> 
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // function id_creader(){
+        //     const txtcaja= document.getElementById("creader");
+        //     const Location= window.location.pathname;
+        //     var Iduser=Location.replace('http://localhost:8070/user/','');
+        //     Iduser=Iduser.replace('/user/upload/','')
+        //     txtcaja.value=Iduser;
+        // }
+    </script>
+
+</body>
+</html>
