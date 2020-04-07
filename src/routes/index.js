@@ -18,8 +18,10 @@ router.get('/user/:id', async(req, res) => {
 
 // Login page routes
 
-router.get('/login', (req, res) => {
-    res.send('Login Page')
+router.get('/login', async(req, res) => {
+	res.render('login', {
+        message: false
+    });
 });
 
 // signup page routes
