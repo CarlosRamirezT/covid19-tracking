@@ -26,8 +26,10 @@ router.get('/login', async(req, res) => {
 
 // signup page routes
 
-router.get('/signup', (req, res) => {
-    res.send('Sign Up Page')
+router.get('/signup', async(req, res) => {
+	res.render('signup', {
+        message: false
+    });
 });
 
 // intermediate page routes
