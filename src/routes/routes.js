@@ -122,7 +122,8 @@ module.exports = (app, passport) => {
     // logout routes
 
     app.get('/logout', (req, res) => {
-        res.send('Logout Page')
+        req.logout();
+		res.redirect('/');
     });
 
     // map tracking routes
