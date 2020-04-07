@@ -14,22 +14,24 @@ module.exports = (app, passport) => {
     // Index page routes
     // initial route for signed users
 
-    app.get('/user/:id', async(req, res) => {
-        res.send('Index Page for signed users');
+    app.get('/user', isLoggedIn, async(req, res) => {
+        const cases = await Case.find()
+        res.render('index-signed',{'cases': cases});
     });
 
     // Login page routes
-
-    app.get('/login', async(req, res) => {
-        res.render('login', {
-            message: req.flash('loginMessage')
-        });
+    
+    app.get('/login', (req, res) => {
+		res.render('login.ejs', {
+			message: req.flash('loginMessage')
+		});
     });
-
+    
     const validate=passport.authenticate('local-login');
     console.log(validate) 
+
 	app.post('/login', passport.authenticate('local-login', {
-		successRedirect: '/intermediate',
+		successRedirect: '/user',
 		failureRedirect: '/login',
 		failureFlash: true
 	}));
@@ -43,16 +45,18 @@ module.exports = (app, passport) => {
 	});
 
 	app.post('/signup', passport.authenticate('local-signup', {
-		successRedirect: '/intermediate',
+		successRedirect: '/index-singed',
 		failureRedirect: '/signup',
 		failureFlash: true
 	}));
 
-    // intermediate page routes
+    // // intermediate page routes
 
-    app.get('/intermediate', (req, res) => {
-        res.send('Intermediate Page')
-    });
+    // app.get('/intermediate', isLoggedIn, (req, res) => {
+	// 	res.render('intermediate', {
+	// 		user: req.user
+	// 	});
+	// });
 
     // intermediate upload page routes
 
@@ -70,11 +74,11 @@ module.exports = (app, passport) => {
         next(err)
       })
 
-    app.get('/user/upload/:id', async(req, res) => {
+    app.get('/user/upload/:id', isLoggedIn, async(req, res) => {
         res.render('upload');
     });
 
-    app.post('/user/upload/:id', async(req, res) => {
+    app.post('/user/upload/:id', isLoggedIn, async(req, res) => {
         const image = new Case();
 
         // victim's information
@@ -146,3 +150,11 @@ module.exports = (app, passport) => {
     });
 
 };
+
+function isLoggedIn (req, res, next) {
+	if (req.isAuthenticated()) {
+		return next();
+	}
+
+	res.redirect('/');
+}

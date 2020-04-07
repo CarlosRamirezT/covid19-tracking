@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Reported Cases</title>
+    <%- include('partials/head') %>
+</head>
+<body>
+  <%- include('partials/navigation') %>
+  <div class="container p4">
+    <div class="row">
+        <div class="card-columns">
+            <%cases.forEach(function(image){ %>
+                <div class="card animated fadeInDown">
+                    <div class="card-body" style="text-align: center;">
+                        <h5 class="card-title"><%= image.name %></h5>
+                        <p class="card-text"><%= image.age %> años</p>
+                        <p class="card-text"><%= image.city %></p>
+                        <p class="card-text"><%= image.province %></p>
+                        <p class="card-text"><%= format(image.create_at) %></p>
+                  </div>
+                </div>
+            <% })%>
+        </div>
+    </div>
+</div>
+</body>
+</html>
