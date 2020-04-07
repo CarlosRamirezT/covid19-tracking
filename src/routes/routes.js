@@ -1,6 +1,7 @@
 const {unlink} = require('fs-extra');
 const Case = require('../models/case');
 const path= require('path');
+const request = require('request');
 module.exports = (app, passport) => {
 
     // Index page routes
@@ -149,6 +150,22 @@ module.exports = (app, passport) => {
     app.get('/user/delete/case', async(req, res) => {
         res.send('Case visualize and delete Page');
     });
+
+    // global cases routes
+
+    app.get('/global/cases', async(req, res) => {
+        request('http://apidashboard.somee.com/api/covid', function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+                var navigation2use = 'navigation-unsigned'
+                if(req.isAuthenticated()){
+                    navigation2use = 'navigation'
+                }
+                res.render('global-cases',{'cases': JSON.parse(body), 'navigation2use': navigation2use});
+            }
+        }) 
+    });
+
+    
 
 };
 
