@@ -14,6 +14,7 @@
         <div class="card-columns">
             <%cases.forEach(function(image){ %>
                 <div class="card animated fadeInDown">
+                    <img src="<%= image.path %>" class="card-img-top">
                     <div class="card-body" style="text-align: center;">
                         <h5 class="card-title"><%= image.name %></h5>
                         <p class="card-text"><%= image.age %> años</p>
