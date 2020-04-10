@@ -21,6 +21,7 @@
                         <p class="card-text"><%= image.city %></p>
                         <p class="card-text"><%= image.province %></p>
                         <p class="card-text"><%= format(image.create_at) %></p>
+                        <a href="/case/<%= image._id %>" class="btn btn-primary">Detalles</a>
                   </div>
                 </div>
             <% })%>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile</title>
+    <%- include("partials/head")-%>
+</head>
+<body>
+    <%- include("partials/navigation")-%>
+    <div class="container p-4" style="display: flex;">
+        <div class="card" style="width: 45%;">
+            <div class="card-body">
+                <h5 class="card-title">Informacion Personal</h5>
+                <img src="/img/uploads/<%=image.filename %>" class="card-img-top" alt="<%= image.filename %>">
+                <br/>
+                <p class="card-text"><strong>Nombre: </strong><%= image.name %></p>
+                <p class="card-text"><strong>Edad: </strong><%= image.age %></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Direccion</h5>
+                <br/>
+                <p class="card-text"><strong>Direccion: </strong><%= image.address %></p>
+                <p class="card-text"><strong>Sector: </strong><%= image.sector %></p>
+                <p class="card-text"><strong>Ciudad: </strong><%= image.city %></p>
+                <p class="card-text"><strong>Provincia: </strong><%= image.province %></p>
+                <p class="card-text"><strong>Pais: </strong><%= image.country %></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Cuadro Clinico</h5>
+                <p class="card-text"><strong>Comienzo de Sintomas: </strong><%= format(image.date_start) %></p>
+                <p class="card-text"><strong>Sintomas: </strong><%= image.symptoms %></p>
+                <p class="card-text"><strong>Fecha Reporte: </strong><%= format(image.create_at) %></p>
+                        <!--
+                            <a href="/image/<%= image._id%>/delete" class="btn btn-danger btn-block">Eliminar Denuncia</a>
+                                <a href="/image/<%= image._id %>/delete" class="btn btn-danger btn-block" >
+                                    Delete image
+                                </a>
+                            -->  
+            </div>
+        </div>
+    </div>
+</body>
+</html>

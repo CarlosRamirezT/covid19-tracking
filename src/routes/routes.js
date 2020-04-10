@@ -115,12 +115,6 @@ module.exports = (app, passport) => {
 		res.redirect('/');
     });
 
-    // profile page routes
-
-    app.get('/profile', (req, res) => {
-        res.send('Profile Page')
-    });
-
     // logout routes
 
     app.get('/logout', (req, res) => {
@@ -142,7 +136,8 @@ module.exports = (app, passport) => {
     // case profile route
 
     app.get('/case/:id', async(req, res) => {
-        res.send('Case Profile Page');
+        const image = await Case.findById(req.params.id);
+        res.render('case-profile',{'image': image});
     });
 
     // case delete cases route
