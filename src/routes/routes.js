@@ -80,6 +80,7 @@ module.exports = (app, passport) => {
     });
 
     app.post('/user/upload', isLoggedIn, async(req, res) => {
+        console.log(req.file);
         const image = new Case();
 
         // victim's information
@@ -103,21 +104,15 @@ module.exports = (app, passport) => {
 
         //infomarmacion de la imagen
 
-		// image.filename = req.image.filename;
-		// image.path = 'img/uploads/' + req.image.filename;
-		// image.originalname = req.image.originalname;
-		// image.mimetype = req.image.mimetype;
-		// image.size = req.image.size;
-        // image.createrId = req.body.creader;
+		image.filename= req.file.filename;
+		image.path = 'img/uploads/'+ req.file.filename;
+		image.originalname = req.file.originalname;
+		image.mimetype = req.file.mimetype;
+		image.size = req.file.size;
+		image.createrId = req.body.creader;
         
         await image.save();
 		res.redirect('/');
-    });
-
-    // profile page routes
-
-    app.get('/profile', (req, res) => {
-        res.send('Profile Page')
     });
 
     // logout routes
@@ -141,7 +136,8 @@ module.exports = (app, passport) => {
     // case profile route
 
     app.get('/case/:id', async(req, res) => {
-        res.send('Case Profile Page');
+        const image = await Case.findById(req.params.id);
+        res.render('case-profile',{'image': image});
     });
 
     // case delete cases route

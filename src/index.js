@@ -24,8 +24,16 @@ app.set('view engine', 'ejs');
 // middlewares
 
 app.use(morgan('dev'));
-app.use(cookieParser());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: false}));
+const storage = multer.diskStorage({
+    destination: path.join(__dirname, 'public/img/uploads'),
+    filename: (req, file, cb, filename) => {
+        cb(null, uuid() + path.extname(file.originalname));
+    }
+});
+app.use(multer({storage: storage}).single('image')); 
+// app.use(cookieParser());
+// app.use(bodyParser.urlencoded({extended: false}));
 
 // required for passport
 
@@ -39,14 +47,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-const storage= multer.diskStorage({
-    destination: path.join(__dirname,'public/img/uploads'),
-    filename: (req,file,cb,filename) =>{
-        cb(null,uuid()+path.extname(file.originalname));
-    }
-});
+// const storage = multer.diskStorage({
+//     destination: path.join(__dirname,'public/img/uploads'),
+//     filename: (req,file,cb,filename) =>{
+//         cb(null,uuid()+path.extname(file.originalname));
+//     }
+// });
 
-app.use(multer({storage}).single('case'));
+// app.use(multer({storage}).single('case'));
 
 //global variables
 

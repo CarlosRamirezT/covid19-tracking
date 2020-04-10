@@ -10,7 +10,7 @@
 </head>
 <body>
     <%- include("partials/navigation")%>
-      <script>
+      <!-- <script>
           function id_creade(){
               const id_box = document.getElementById("Creader");
               const Location= window.location.pathname;
@@ -18,7 +18,7 @@
               Iduser=Location.replace('/user/upload/','')
               txtcaja.value=Iduser;
           }
-      </script>
+      </script> -->
       <form action="/user/upload" method="POST" enctype="multipart/form-data" class="-form">
         <div class="container p-4" style="display: flex;">
             <div class="card">
@@ -51,12 +51,12 @@
 
                     <input name="contact_phone" type="text" placeholder="Telefono Contacto" class="form-control" required><br/>
 
-                    <!-- <div class="input-group mb-3">
+                    <div class="input-group mb-3">
                         <div class="custom-file">
-                            <input type="file" name="image" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" required>
+                            <input type="file" name="image" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" required>  
                             <label class="custom-file-label" for="inputGroupFile01">Foto Afectado</label>
                         </div>
-                    </div> -->
+                    </div>
 
                     <h4>Cuadro Clinico</h4>
 
@@ -67,7 +67,8 @@
                     <input type="text" name="creader" id="creader" style="display:none">
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-success btn-block" onclick="id_creader()">Upload</button>
+                        <!-- <button type="submit" class="btn btn-success btn-block" onclick="id_creader()">Upload</button> -->
+                        <button type="submit" class="btn btn-success btn-block">Upload</button>
                     </div>
 
                 </div>
@@ -75,7 +76,7 @@
         </div>
     </form> 
 
-    <script>
+    <!-- <script>
         function id_creader(){
             const txtcaja= document.getElementById("creader");
             const Location= window.location.pathname;
@@ -83,7 +84,7 @@
             Iduser=Iduser.replace('/user/upload/','')
             txtcaja.value=Iduser;
         }
-    </script>
+    </script> -->
 
 </body>
 </html>
